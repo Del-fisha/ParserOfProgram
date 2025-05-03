@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    private static List<File> filesToParse;
-    private static Scanner scanner;
+    private static final List<File> filesToParse;
+    private static final Scanner scanner;
 
     static {
         filesToParse = new ArrayList<>();
@@ -51,9 +51,7 @@ public class Main {
             for (File file : files) {
                 if (file.isFile()) {
                     for (String type : types) {
-                        if (file.getName().endsWith(type)
-                                || file.getName().endsWith("gradle")
-                                || file.getName().equals("pom.xml")) {
+                        if (file.getName().endsWith(type)) {
                             filesToParse.add(file);
                         }
                     }
